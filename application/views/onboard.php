@@ -11,8 +11,8 @@
   <!--  Favicon -->
   <!-- <link rel="shortcut icon" type="image/png" href="../landing/dist/images/logos/favicon.ico"> -->
   <link rel="shortcut icon" type="image/png" href="<?php base_url() ?>assets/logo_min.png" />
-  <!--  Aos -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/landing/aos.css">
+  <!--  Aos --><link rel="stylesheet" href="<?php echo base_url(); ?>dist/landing/aos.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/style.min.css" />
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/landing/owl.carousel.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/landing/style.min.css">
 </head>
@@ -36,77 +36,75 @@
                 </tr>
               </table>
             </a>
-            <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i class="ti ti-menu-2 fs-9"></i>
-          </button>
-          <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-          <i class="ti ti-menu-2 fs-9"></i>
-        </button>
-      </div>
-    </nav>
-  </header>
-  <div class="body-wrapper overflow-hidden">
-    <section class="hero-section position-relative overflow-hidden mb-0 mb-lg-11">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-xl-6">
-            <div class="hero-content my-11 my-xl-0">
-              <h1 class="fw-bolder mb-8 fs-13" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Aplikasi Absensi<span class="text-primary"> MIN Satu Jombang</span></h1>
-              <p class="fs-5 mb-5 text-dark fw-normal" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000"> Digitalisasi absensi yang mewujudkan Min 1 Jombang menjadi madrasah go digital</p>
-
-              <a href="<?php echo base_url(); ?>absensi_masuk" class="btn btn-primary btn-lg">Absensi Masuk</a>
-                        <a href="<?php echo base_url(); ?>absensi_pulang" class="btn btn-success btn-lg">Absensi Pulang</a>
-            </div>
           </div>
-          <div class="col-xl-6 d-none d-xl-block">
-            <div class="hero-img-slide position-relative bg-light-primary p-4 rounded">
-              <div class="d-flex flex-row" style="padding-top: 10%">
-                <!-- <center> -->
-                  <div class="row">
-                    <div class="col-sm-12" style="padding-left: 100px">
-                      <center>
-                        <img src="<?php echo base_url(); ?>assets/absensi_online.png" width="40%">
-                        <h2><b>Absensi MIN 1 JBG</b></h2><br>
-                      </center>
+        </nav>
+      </header>
+      <div class="body-wrapper overflow-hidden">
+        <section class="hero-section position-relative overflow-hidden mb-0 mb-lg-11">
+          <div class="container">
+            <div class="row align-items-center" style="padding-top: 0px">
+              <div class="col-xl-6">
+                <div class="hero-content my-xl-0">
+                  <i class="ti ti-rocket text-secondary fs-6"></i>Haloooo !!  Selamat datang</h6>
+                  <h1 class="fw-bolder mb-8 fs-13" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Aplikasi Absensi<span style="color: #008d4c;"> Digital</span></h1>
+                  <p class="fs-5 mb-5 text-dark fw-normal" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Aplikasi Absensi Digital MIN 1 JOMBANG adalah solusi modern untuk mengelola kehadiran siswa di Madrasah MIN 1 Jombang. Aplikasi ini memungkinkan pencatatan absensi yang efisien, pemantauan waktu, dan pelaporan yang akurat, memudahkan administrasi sekolah dalam manajemen kehadiran.</p>
+
+                  <a href="<?php echo base_url(); ?>absensi_masuk" 
+                    class="btn btn-primary btn-lg">
+                    <i class="ti ti-angle-right"></i> Absensi Masuk
+                  </a>
+                  <a href="<?php echo base_url(); ?>absensi_pulang" 
+                    class="btn btn-success btn-lg">
+                    <i class="ti ti-angle-right"></i>  Absensi Pulang
+                  </a>
+                </div>
+              </div>
+              <div class="col-xl-6 d-none d-xl-block">
+                <div class="hero-img-slide position-relative bg-light-primary p-4 rounded">
+                  <div class="d-flex flex-row" style="padding-top: 5%">
+                    <!-- <center> -->
+                      <div class="row">
+                        <div class="col-sm-12" style="padding-left: 100px; padding-top: 10px">
+                          <center>
+                            <img src="<?php echo base_url(); ?>assets/absensi_online.png" width="100%">
+                            <!-- <h2><b>Absensi MIN 1 JBG</b></h2><br> -->
+                          </center>
+                        </div>
+                        <div class="col-sm-6">
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-sm-6">
-                    </div>
+
+                    <!-- </center> -->
                   </div>
                 </div>
-
-                <!-- </center> -->
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
-  </div>
-  <footer class="footer-part pt-8 pb-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-4">
-          <div class="text-center">
-            <a href="index-new.html">
-              <img src="../landingpage/dist/images/logos/favicon.ico" alt="" class="img-fluid pb-3">
-            </a>
-            <p class="mb-0 text-dark">Absensi MIN 1 jombang <a
-              class="text-dark text-hover-primary border-bottom border-primary"
-              href="https://adminmart.com/">APLIKASI MIN 1 JOMBANG.</a></p>
+      <footer class="footer-part pt-8 pb-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4">
+              <div class="text-center">
+                <a href="index-new.html">
+                  <img src="../landingpage/dist/images/logos/favicon.ico" alt="" class="img-fluid pb-3">
+                </a>
+                <p class="mb-0 text-dark">Absensi MIN 1 jombang <a
+                  class="text-dark text-hover-primary border-bottom border-primary"
+                  href="https://adminmart.com/">APLIKASI MIN 1 JOMBANG.</a></p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </footer>
       </div>
-    </footer>
-  </div>
-  <script src="<?php echo base_url(); ?>dist/landing/jquery.min.js"></script>
-  <script src="<?php echo base_url(); ?>dist/landing/aos.js"></script>
-  <script src="<?php echo base_url(); ?>dist/landing/bootstrap.bundle.min.js"></script>
-  <script src="<?php echo base_url(); ?>dist/landing/owl.carousel.min.js"></script>
-  <script src="<?php echo base_url(); ?>dist/landing/custom.js"></script>
-</body>
+      <script src="<?php echo base_url(); ?>dist/landing/jquery.min.js"></script>
+      <script src="<?php echo base_url(); ?>dist/landing/aos.js"></script>
+      <script src="<?php echo base_url(); ?>dist/landing/bootstrap.bundle.min.js"></script>
+      <script src="<?php echo base_url(); ?>dist/landing/owl.carousel.min.js"></script>
+      <script src="<?php echo base_url(); ?>dist/landing/custom.js"></script>
+    </body>
 
-</html>
+    </html>

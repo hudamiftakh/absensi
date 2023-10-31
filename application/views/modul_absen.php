@@ -130,20 +130,15 @@
                     </div>
                   </a>
                   <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop1">
-
                     <div class="message-body">
                       <a href="page-user-profile.html" class="py-8 px-7 mt-8 d-flex align-items-center">
                         <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                           <img src="<?php echo base_url(); ?>dist/images/profile/user-1.jpg" alt="" width="24" height="24">
                         </span>
-                        <div class="w-75 d-inline-block v-middle ps-3">
-                          <h6 class="mb-1 bg-hover-primary fw-semibold"> My Profile </h6>
-                          <span class="d-block text-dark">Account Settings</span>
-                        </div>
                       </a>
                     </div>
                     <div class="d-grid py-4 px-7 pt-8">
-                      <a href="<?php echo base_url(); ?>logout" class="btn btn-outline-primary">Log Out</a>
+                      <a href="https://digitalminsajo.sch.id/login" class="btn btn-outline-primary">Login</a>
                     </div>
                   </div>
                 </li>
