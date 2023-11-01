@@ -12,7 +12,7 @@
   <meta name="description" content="Mordenize" />
   <meta name="author" content="" />
   <meta name="keywords" content="Mordenize" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
   <link rel="shortcut icon" type="image/png" href="<?php base_url() ?>assets/logo_min.png" />
   <link rel="stylesheet" href="<?php echo base_url(); ?>dist/css/style.min.css" />
   <script src="<?php echo base_url(); ?>dist/libs/jquery/dist/jquery.min.js"></script>
