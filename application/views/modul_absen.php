@@ -100,14 +100,14 @@
       <header class="app-header" style="background-color: #008d4c"> 
         <nav class="navbar navbar-expand-lg navbar-light">
           <ul class="navbar-nav">
-            <li class="nav-item" style="width: 1000px; padding-left: 0px !important" >
+            <li class="nav-item" style="width: ; padding-left: 0px !important" >
               <table style="padding-left: 0px" width="30%" >
                 <tr>
                  <!--  <td width="1px">
                     <a href="./" style="color: white"><i style="font-size: 25px" class="ti ti-arrow-left"></i></a>
                   </td> -->
                   <td width="5%" style="text-align: right;"><img src="<?php base_url() ?>assets/logo_min.png" class="dark-logo" width="39" alt="" /></td>
-                  <td width="50%" style="text-align: left; line-height: 15px; padding-left: 2px">
+                  <td width="50%" style="text-align: left; line-height: 15px; padding-left: 2px" nowrap="">
                     <label style="font-weight: bold; color: white; font-size: 20px; padding-top: 10px">Absensi <label style="color: #f9ca24; font-weight: bold;">Digital</label></label><br>
                     <label style="color: white; font-size: 11px;">MIN I Jombang</label>
                   </td>
