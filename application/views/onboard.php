@@ -52,72 +52,77 @@
               <div class="col-xl-6">
                 <div class="hero-content my-xl-0">
                   <label style="font-size: 20px"><i style="font-size: 20px" class="ti ti-rocket text-secondary fs-6"></i> Selamat datang !!</label>
-                  <h1 class="fw-bolder mb-8 fs-13" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Aplikasi Absensi<span style="color: #008d4c;"> Digital</span></h1>
+                  <h1 class="fw-bolder mb-8 fs-13" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Aplikasi <span style="color: #008d4c;">Absensi Digital</span></h1>
                   <p class="fs-5 mb-5 text-dark fw-normal" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">Aplikasi Absensi Digital MIN 1 JOMBANG adalah solusi modern untuk mengelola kehadiran siswa di Madrasah MIN 1 Jombang. Aplikasi ini memungkinkan pencatatan absensi yang efisien, pemantauan waktu, dan pelaporan yang akurat, memudahkan administrasi sekolah dalam manajemen kehadiran.</p>
 
-                  <a href="<?php echo base_url(); ?>absensi_masuk" 
-                    class="btn btn-primary btn-lg">
-                    <i class="ti ti-angle-right"></i> Absensi Masuk
+                  <!-- <a href="<?php echo base_url(); ?>absensi_masuk" 
+                    class="btn btn-primary px-5 btn-hover-shadow d-block mb-3 mb-sm-0">
+                    <i class="ti ti-clipboard"></i> Absensi Masuk
                   </a>
                   <a href="<?php echo base_url(); ?>absensi_pulang" 
-                    class="btn btn-success btn-lg">
-                    <i class="ti ti-angle-right"></i>  Absensi Pulang
-                  </a>
+                    class="btn btn-success px-5 btn-hover-shadow d-block mb-3 mb-sm-0">
+                    <i class="ti ti-clipboard"></i>  Absensi Pulang
+                  </a> -->
+
+                  <div class="d-sm-flex align-items-center gap-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
+                    <a class="btn btn-primary px-5 btn-hover-shadow d-block mb-3 mb-sm-0" href="<?php echo base_url(); ?>absensi_masuk"><i class="ti ti-clipboard"></i> Absensi Masuk</a>
+                    <a class="btn btn-success d-block scroll-link" href="<?php echo base_url(); ?>absensi_pulang"><i class="ti ti-clipboard"></i> Absensi Pulang</a>
+                  </div>
                 </div>
               </div>
               <style type="text/css">
 
                 .hero-section .hero-img-slide {
-                   min-width: 0px !important; 
-                   height: 0px !important; 
-                }
-              </style>
-              <div class="col-xl-6">
-                <div class="position-relative p-4 rounded">
-                  <div style="padding-top: 5%">
-                    <!-- <center> -->
-                      <div class="row">
-                        <div class="col-sm-12" style="padding-left: 0px; padding-top: 10px">
-                          <center>
-                            <img src="<?php echo base_url(); ?>assets/absensi_online.png" width="70%">
-                            <!-- <h2><b>Absensi MIN 1 JBG</b></h2><br> -->
-                          </center>
-                        </div>
-                        <div class="col-sm-6">
-                        </div>
+                 min-width: 0px !important; 
+                 height: 0px !important; 
+               }
+             </style>
+             <div class="col-xl-6">
+              <div class="position-relative p-4 rounded">
+                <div style="padding-top: 5%">
+                  <!-- <center> -->
+                    <div class="row">
+                      <div class="col-sm-12" style="padding-left: 20px; padding-top: 10px">
+                        <center>
+                          <img src="<?php echo base_url(); ?>assets/absensi_online.png" width="80%">
+                          <!-- <h2><b>Absensi MIN 1 JBG</b></h2><br> -->
+                        </center>
+                      </div>
+                      <div class="col-sm-6">
                       </div>
                     </div>
-
-                    <!-- </center> -->
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <footer class="footer-part pt-8 pb-5">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-4">
-              <div class="text-center">
-                <a href="index-new.html">
-                  <img src="../landingpage/dist/images/logos/favicon.ico" alt="" class="img-fluid pb-3">
-                </a>
-                <p class="mb-0 text-dark">Absensi MIN 1 jombang <a
-                  class="text-dark text-hover-primary border-bottom border-primary"
-                  href="https://adminmart.com/">APLIKASI MIN 1 JOMBANG.</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-      <script src="<?php echo base_url(); ?>dist/landing/jquery.min.js"></script>
-      <script src="<?php echo base_url(); ?>dist/landing/aos.js"></script>
-      <script src="<?php echo base_url(); ?>dist/landing/bootstrap.bundle.min.js"></script>
-      <script src="<?php echo base_url(); ?>dist/landing/owl.carousel.min.js"></script>
-      <script src="<?php echo base_url(); ?>dist/landing/custom.js"></script>
-    </body>
 
-    </html>
+                  <!-- </center> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer-part pt-8 pb-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-4">
+            <div class="text-center">
+              <a href="index-new.html">
+                <img src="../landingpage/dist/images/logos/favicon.ico" alt="" class="img-fluid pb-3">
+              </a>
+              <p class="mb-0 text-dark">Absensi MIN 1 jombang <a
+                class="text-dark text-hover-primary border-bottom border-primary"
+                href="https://digitalminsajo.sch.id">APLIKASI MIN 1 JOMBANG.</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="<?php echo base_url(); ?>dist/landing/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>dist/landing/aos.js"></script>
+    <script src="<?php echo base_url(); ?>dist/landing/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url(); ?>dist/landing/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url(); ?>dist/landing/custom.js"></script>
+  </body>
+
+  </html>
