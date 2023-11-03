@@ -151,7 +151,7 @@ $absensi_terakhir = $this->db->query("
                     </h3>
                     <p class="mb-0 text-dark">Total Siswa</p>
                   </div>
-                  <div class="ps-4">
+                 <!--  <div class="ps-4">
                     <h3 class="mb-1 fw-semibold fs-8 d-flex  align-content-center">
                       <?php 
                       $total_laki = $this->db->query(
@@ -165,8 +165,8 @@ $absensi_terakhir = $this->db->query("
                       ?>
                     </h3>
                     <p class="mb-0 text-dark">Laki-Laki</p>
-                  </div>
-                  <div class="ps-4">
+                  </div> -->
+                <!--   <div class="ps-4">
                     <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
                      <?php 
                      $total_perempuan = $this->db->query(
@@ -180,7 +180,7 @@ $absensi_terakhir = $this->db->query("
                      ?>
                    </h3>
                    <p class="mb-0 text-dark">Perempuan</p>
-                 </div>
+                 </div> -->
                  <div class="ps-4">
                   <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
                    <?php 
