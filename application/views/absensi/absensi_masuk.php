@@ -87,7 +87,7 @@ $absensi_terakhir = $this->db->query("
              </h5>
              <br>
              <form id="myForm" action="" method="POST">
-              <input type="text" name="rfid" autofocus="" id="autofocus" class="form-control border border-2 border-success" placeholder="Masukan ID anda" oninput="handleRFIDScan(event)">
+              <input type="number" name="rfid" autofocus="" id="autofocus" class="form-control border border-2 border-success" placeholder="Masukan ID anda" oninput="handleRFIDScan(event)">
             </form>
             <br>
             <i class="ti ti-calendar"></i> <?php echo farmat_tanggal(date('Y-m-d')); ?> <label id="hari" style="display: none;"></label> <label style="display: none;" id="tanggal"></label> <br>
