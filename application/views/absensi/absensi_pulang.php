@@ -95,7 +95,7 @@ $absensi_terakhir = $this->db->query("
             <?php if(empty($absensi_terakhir)): ?>
               <img src="<?php echo base_url(); ?>assets/siswa/blank.jpg" class="rounded-circle  border border-danger border-5" style="width: 80%; height: 80%" >
               <?php else : ?>
-                <img src="<?php echo base_url(); ?>assets/siswa/<?php echo ($absensi_terakhir['jk']=='L') ? 'cowok.jpg' : 'cewek.jpg'; ?>" style="width: 80%; height: 80%" class="rounded-circle border border-danger border-5" >
+                <img src="<?php echo base_url(); ?>assets/siswa/<?php echo ($absensi_terakhir['jk']=='L') ? 'cowok.jpg' : 'cewek.jpg'; ?>" style="width: 200px; height: 200px" class="rounded-circle border border-danger border-5" >
               <?php endif;?>
               <br>
               <br>
@@ -132,100 +132,99 @@ $absensi_terakhir = $this->db->query("
     </style>
     <div class="col-lg-9">
 
-       <div class="row">
-          <div class="col-lg-12 d-flex align-items-stretch">
-            <div class="card w-100 bg-light-danger overflow-hidden shadow-none">
-              <div class="card-body position-relative">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="d-flex align-items-center mb-7">
-                      <h5 class="fw-semibold mb-0 fs-5">Total Siswa Absen Pulang Tanggal <?php echo farmat_tanggal(date('Y-m-d')); ?> </h5>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="border-end pe-4 border-muted border-opacity-10">
-                        <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
-                          <?php 
-                            $total_siswa = $this->db->get('tb_siswa')->num_rows();
-                            echo $total_siswa;
-                          ?>
-                        </h3>
-                        <p class="mb-0 text-dark">Total Siswa</p>
-                      </div>
-                      <div class="ps-4">
-                          <h3 class="mb-1 fw-semibold fs-8 d-flex  align-content-center">
-                            <?php 
-                              $total_laki = $this->db->query(
-                                "
-                                  SELECT * FROM tb_absen as a  
-                                  INNER JOIN tb_siswa as b ON a.id_siswa = b.id AND a.nis=b.nis  
-                                  WHERE b.jk='L' AND a.tanggal='".date('Y-m-d')."' AND a.keterangan_pulang<>''
-                                "
-                              )->num_rows();
-                              echo $total_laki;
-                            ?>
-                          </h3>
-                          <p class="mb-0 text-dark">Laki-Laki</p>
-                      </div>
-                      <div class="ps-4">
-                          <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
-                             <?php 
-                              $total_perempuan = $this->db->query(
-                                "
-                                  SELECT * FROM tb_absen as a  
-                                  INNER JOIN tb_siswa as b ON a.id_siswa = b.id AND a.nis=b.nis  
-                                  WHERE b.jk='P' AND a.tanggal='".date('Y-m-d')."' AND a.keterangan_pulang<>''
-                                "
-                              )->num_rows();
-                              echo $total_perempuan;
-                            ?>
-                          </h3>
-                          <p class="mb-0 text-dark">Perempuan</p>
-                      </div>
-                      <div class="ps-4">
-                          <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
-                             <?php 
-                              $tepat_waktu = $this->db->query(
-                                "
-                                  SELECT * FROM tb_absen as a  
-                                  INNER JOIN tb_siswa as b ON a.id_siswa = b.id AND a.nis=b.nis  
-                                  WHERE a.keterangan_pulang='Pulang' AND a.tanggal='".date('Y-m-d')."'
-                                "
-                              )->num_rows();
-                              echo $tepat_waktu;
-                            ?>
-                          </h3>
-                          <p class="mb-0 text-dark">Tepat Waktu</p>
-                      </div>
-                       <div class="ps-4">
-                          <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
-                             <?php 
-                              $tepat_waktu = $this->db->query(
-                                "
-                                  SELECT * FROM tb_absen as a  
-                                  INNER JOIN tb_siswa as b ON a.id_siswa = b.id AND a.nis=b.nis  
-                                  WHERE a.keterangan_pulang='Pulang Cepat' AND a.tanggal='".date('Y-m-d')."'
-                                "
-                              )->num_rows();
-                              echo $tepat_waktu;
-                            ?>
-                          </h3>
-                          <p class="mb-0 text-dark">Pulang Cepat</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="welcome-bg-img mb-n7 text-end">
-                      <img src="<?php echo base_url(); ?>dist/images/backgrounds/welcome-bg.svg" alt="" class="img-fluid">
-                    </div>
-                  </div>
+     <div class="row" style="padding-top: 17px">
+      <div class="col-lg-12 d-flex align-items-stretch">
+        <div class="card w-100 bg-light-danger overflow-hidden shadow-none">
+          <div class="card-body position-relative">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="d-flex align-items-center mb-7">
+                  <h5 class="fw-semibold mb-0 fs-5">Total Siswa Absen Pulang Tanggal <?php echo farmat_tanggal(date('Y-m-d')); ?> </h5>
                 </div>
-              </div>  
-            </div>
+                <div class="d-flex align-items-center">
+                  <div class="border-end pe-4 border-muted border-opacity-10">
+                    <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
+                      <?php 
+                      $total_siswa = $this->db->get('tb_siswa')->num_rows();
+                      echo $total_siswa;
+                      ?>
+                    </h3>
+                    <p class="mb-0 text-dark">Total Siswa</p>
+                  </div>
+                  <div class="ps-4">
+                    <h3 class="mb-1 fw-semibold fs-8 d-flex  align-content-center">
+                      <?php 
+                      $total_laki = $this->db->query(
+                        "
+                        SELECT * FROM tb_absen as a  
+                        INNER JOIN tb_siswa as b ON a.id_siswa = b.id AND a.nis=b.nis  
+                        WHERE b.jk='L' AND a.tanggal='".date('Y-m-d')."' AND a.keterangan_pulang<>''
+                        "
+                      )->num_rows();
+                      echo $total_laki;
+                      ?>
+                    </h3>
+                    <p class="mb-0 text-dark">Laki-Laki</p>
+                  </div>
+                  <div class="ps-4">
+                    <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
+                     <?php 
+                     $total_perempuan = $this->db->query(
+                      "
+                      SELECT * FROM tb_absen as a  
+                      INNER JOIN tb_siswa as b ON a.id_siswa = b.id AND a.nis=b.nis  
+                      WHERE b.jk='P' AND a.tanggal='".date('Y-m-d')."' AND a.keterangan_pulang<>''
+                      "
+                    )->num_rows();
+                     echo $total_perempuan;
+                     ?>
+                   </h3>
+                   <p class="mb-0 text-dark">Perempuan</p>
+                 </div>
+                 <div class="ps-4">
+                  <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
+                   <?php 
+                   $tepat_waktu = $this->db->query(
+                    "
+                    SELECT * FROM tb_absen as a  
+                    INNER JOIN tb_siswa as b ON a.id_siswa = b.id AND a.nis=b.nis  
+                    WHERE a.keterangan_pulang='Pulang' AND a.tanggal='".date('Y-m-d')."'
+                    "
+                  )->num_rows();
+                   echo $tepat_waktu;
+                   ?>
+                 </h3>
+                 <p class="mb-0 text-dark">Tepat Waktu</p>
+               </div>
+               <div class="ps-4">
+                <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">
+                 <?php 
+                 $tepat_waktu = $this->db->query(
+                  "
+                  SELECT * FROM tb_absen as a  
+                  INNER JOIN tb_siswa as b ON a.id_siswa = b.id AND a.nis=b.nis  
+                  WHERE a.keterangan_pulang='Pulang Cepat' AND a.tanggal='".date('Y-m-d')."'
+                  "
+                )->num_rows();
+                 echo $tepat_waktu;
+                 ?>
+               </h3>
+               <p class="mb-0 text-dark">Pulang Cepat</p>
+             </div>
+           </div>
+         </div>
+         <div class="col-sm-5">
+          <div class="welcome-bg-img mb-n7 text-end">
+            <img src="<?php echo base_url(); ?>dist/images/backgrounds/welcome-bg.svg" alt="" class="img-fluid">
           </div>
-      <!-- <div class="card2"> -->
-        <div class="table-responsive">
-          <table class="table border table-stripped "><!-- 
-            <label style="font-weight: bold;"><i class="ti ti-calendar"></i> Tanggal : <?php echo farmat_tanggal(date('Y-m-d')); ?></label> -->
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+<div class="card2">
+  <div class="table-responsive" style="padding-top: 20px">
+          <table class="table border table-stripped">
             <thead style="background-color: #008d4c !important; color: white">
               <tr>
                 <th>NIS</th>
@@ -278,39 +277,40 @@ $absensi_terakhir = $this->db->query("
           <center style="font-weight: bold; padding-top: 30%; color: orange;"><label style="background-color: black; padding: 8px;border-radius: 10px">#MIN 1 JOMBANG <label style="color: green">GODIGITAL</label></label></center> -->
         </div>
       </div>
+    </div>
 
 
-      <script type="text/javascript">
-        function updateDateTime() {
-          var now = new Date();
-          var hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"][now.getDay()];
-          var tanggal = ("0" + now.getDate()).slice(-2);
-          var bulan = ("0" + (now.getMonth() + 1)).slice(-2);
-          var tahun = now.getFullYear();
-          var tanggalFormat = tanggal + "-" + bulan + "-" + tahun;
-          var jam = ("0" + now.getHours()).slice(-2);
-          var menit = ("0" + now.getMinutes()).slice(-2);
-          var detik = ("0" + now.getSeconds()).slice(-2);
-          var waktuFormat = jam + ":" + menit + ":" + detik;
-          document.getElementById("hari").textContent = hari;
-          document.getElementById("tanggal").textContent = tanggalFormat;
-          document.getElementById("waktu").textContent = waktuFormat;
-          setTimeout(updateDateTime, 1000);
-        }
-        updateDateTime();
+    <script type="text/javascript">
+      function updateDateTime() {
+        var now = new Date();
+        var hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"][now.getDay()];
+        var tanggal = ("0" + now.getDate()).slice(-2);
+        var bulan = ("0" + (now.getMonth() + 1)).slice(-2);
+        var tahun = now.getFullYear();
+        var tanggalFormat = tanggal + "-" + bulan + "-" + tahun;
+        var jam = ("0" + now.getHours()).slice(-2);
+        var menit = ("0" + now.getMinutes()).slice(-2);
+        var detik = ("0" + now.getSeconds()).slice(-2);
+        var waktuFormat = jam + ":" + menit + ":" + detik;
+        document.getElementById("hari").textContent = hari;
+        document.getElementById("tanggal").textContent = tanggalFormat;
+        document.getElementById("waktu").textContent = waktuFormat;
+        setTimeout(updateDateTime, 1000);
+      }
+      updateDateTime();
 
 
-        function handleRFIDScan(event) {
-          event.preventDefault();
-          var rfidValue = event.target.value;
+      function handleRFIDScan(event) {
+        event.preventDefault();
+        var rfidValue = event.target.value;
+        document.getElementById("myForm").submit();
+      }
+
+      function handleRFIDScan(event) {
+        var rfidInput = event.target.value;
+
+        if (rfidInput.length>=10) {
           document.getElementById("myForm").submit();
         }
-
-        function handleRFIDScan(event) {
-          var rfidInput = event.target.value;
-
-          if (rfidInput.length === 10) {
-            document.getElementById("myForm").submit();
-          }
-        }
-      </script>
+      }
+    </script>
