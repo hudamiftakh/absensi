@@ -23,7 +23,7 @@
         title: 'Berhasil',
         text: 'Terimakasi sudah melakukan absensi',
         icon : 'success',
-        timer: 4500,
+        timer: 4000,
         showCancelButton: false,
         showConfirmButton: false
       }).then(function() {
@@ -36,7 +36,7 @@
         title: 'Maaf !!',
         text: 'Sudah melakukan absen sebelumnya',
         icon : 'error',
-        timer: 4500,
+        timer: 4000,
         showCancelButton: false,
         showConfirmButton: false
       }).then(function() {
@@ -49,7 +49,7 @@
         title: 'Maaf !!',
         text: 'Data siswa tidak ditemukan',
         icon : 'error',
-        timer: 4500,
+        timer: 4000,
         showCancelButton: false,
         showConfirmButton: false
       }).then(function() {
