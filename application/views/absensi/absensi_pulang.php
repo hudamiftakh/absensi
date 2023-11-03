@@ -139,7 +139,7 @@ $absensi_terakhir = $this->db->query("
             <div class="row">
               <div class="col-sm-12">
                 <div class="d-flex align-items-center mb-7">
-                  <h5 class="fw-semibold mb-0 fs-5">Total Siswa Absen Pulang <?php echo farmat_tanggal(date('Y-m-d')); ?> </h5>
+                  <h5 class="fw-semibold mb-0 fs-5">Absen Pulang <?php echo farmat_tanggal(date('Y-m-d')); ?> </h5>
                 </div>
                 <div class="d-flex align-items-center">
                   <div class="border-end pe-4 border-muted border-opacity-10">
