@@ -99,7 +99,7 @@ function sendWa1($hp, $text)
 
 	$response = curl_exec($curl);
 	curl_close($curl);
-	
+	echo $response;
 	if (empty($response)) {
 		$data = [
 			'api_key' => 'efacb2a793deade57af9fb2fd3f79b91911c5324',
