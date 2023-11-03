@@ -18,91 +18,94 @@
   <script src="<?php echo base_url(); ?>dist/libs/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>dist/alert/sweetalert2@9.js"></script>
   <script>
-      function behasil_absen() {
-          Swal.fire({
-            title: 'Berhasil',
-            text: 'Terimakasi sudah melakukan absensi',
-            icon : 'success',
-            timer: 4500,
-            showCancelButton: false,
-            showConfirmButton: false
-          }).then(function() {
-            $('#autofocus').focus();
-          });
-      }
+    function behasil_absen() {
+      Swal.fire({
+        title: 'Berhasil',
+        text: 'Terimakasi sudah melakukan absensi',
+        icon : 'success',
+        timer: 4500,
+        showCancelButton: false,
+        showConfirmButton: false
+      }).then(function() {
+        $('#autofocus').focus();
+      });
+    }
 
-      function sudah_pernah_absen() {
-          Swal.fire({
-            title: 'Maaf !!',
-            text: 'Sudah melakukan absen sebelumnya',
-            icon : 'error',
-            timer: 4500,
-            showCancelButton: false,
-            showConfirmButton: false
-          }).then(function() {
-            $('#autofocus').focus();
-          });
-      }
+    function sudah_pernah_absen() {
+      Swal.fire({
+        title: 'Maaf !!',
+        text: 'Sudah melakukan absen sebelumnya',
+        icon : 'error',
+        timer: 4500,
+        showCancelButton: false,
+        showConfirmButton: false
+      }).then(function() {
+        $('#autofocus').focus();
+      });
+    }
 
-      function data_kosong() {
-          Swal.fire({
-            title: 'Maaf !!',
-            text: 'Data siswa tidak ditemukan',
-            icon : 'error',
-            timer: 4500,
-            showCancelButton: false,
-            showConfirmButton: false
-          }).then(function() {
-            $('#autofocus').focus()
-          });
-      }
+    function data_kosong() {
+      Swal.fire({
+        title: 'Maaf !!',
+        text: 'Data siswa tidak ditemukan',
+        icon : 'error',
+        timer: 4500,
+        showCancelButton: false,
+        showConfirmButton: false
+      }).then(function() {
+        $('#autofocus').focus()
+      });
+    }
       // data_kosong();
     </script>
-  <style type="text/css">
-    .nav-icon-hover {
-      display: none;
-    }
-    #main-wrapper[data-layout=vertical] .app-header.fixed-header .navbar {
-      background: #008d4c !important; 
-      padding: 0 0px !important;
-      border-radius: 0px !important;
-      box-shadow: none !important; 
-      margin-top: 0px !important;
-    }
-    .card2 {
-      position: relative !important;
-      display: flex !important;
-      flex-direction: column !important;
-      min-width: 0 !important;
-      word-wrap: break-word !important;
-      background-color: #fff !important;
-      background-clip: border-box !important;
-      border: 1px solid rgba(0,0,0,.2) !important;
-      border-radius: 0.25rem;
-      color: black;
-    }
-    .card-body2 {
-      flex: 1 1 auto;
-      padding: 1rem 1rem;
-    }
-    .card-header2 {
-      padding: 0.5rem 1rem;
-      margin-bottom: 0;
-      background-color: rgba(0,0,0,.03);
-      border-bottom: 1px solid rgba(0,0,0,.125);
-    }
-  </style>
-</head>
+    <style type="text/css">
+      .nav-icon-hover {
+        display: none;
+      }
+      #main-wrapper[data-layout=vertical] .app-header.fixed-header .navbar {
+        background: #008d4c !important; 
+        padding: 0 0px !important;
+        border-radius: 0px !important;
+        box-shadow: none !important; 
+        margin-top: 0px !important;
+      }
+      .card2 {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        min-width: 0 !important;
+        word-wrap: break-word !important;
+        background-color: #fff !important;
+        background-clip: border-box !important;
+        border: 1px solid rgba(0,0,0,.2) !important;
+        border-radius: 0.25rem;
+        color: black;
+      }
+      .card-body2 {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+      }
+      .card-header2 {
+        padding: 0.5rem 1rem;
+        margin-bottom: 0;
+        background-color: rgba(0,0,0,.03);
+        border-bottom: 1px solid rgba(0,0,0,.125);
+      }
+      .table-responsive {
+        overflow-x: auto !important;
+      }
+    </style>
+  </head>
 
-<body>
-  <div class="page-wrapper">
-    <div class="body-wrapper">
-      <header class="app-header" style="background-color: #008d4c"> 
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <ul class="navbar-nav">
-            <li class="nav-item" style="width: ; padding-left: 0px !important" >
-              <table style="padding-left: 0px" width="30%" >
-                <tr>
+  <body>
+    <div class="page-wrapper">
+      <div class="body-wrapper">
+        <header class="app-header" style="background-color: #008d4c"> 
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav">
+              <li class="nav-item" style="width: ; padding-left: 0px !important" >
+                <table style="padding-left: 0px" width="30%" >
+                  <tr>
                  <!--  <td width="1px">
                     <a href="./" style="color: white"><i style="font-size: 25px" class="ti ti-arrow-left"></i></a>
                   </td> -->
@@ -161,7 +164,7 @@
 
         }
       </script>
-     
+
       <script src="<?php echo base_url(); ?>dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
       <script src="<?php echo base_url(); ?>dist/js/app.min.js"></script>
       <script src="<?php echo base_url(); ?>dist/js/custom.js"></script>
