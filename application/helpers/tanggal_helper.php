@@ -80,7 +80,7 @@ function sendWa1($hp, $text)
 {
    $curl = curl_init();
 	curl_setopt_array($curl, array(
-	  CURLOPT_URL => 'https://wa.minsajo.whatsappu.com/api/create-message',
+	  CURLOPT_URL => 'https://wa.minsajo.saungwa.com/api/create-message',
 	  CURLOPT_RETURNTRANSFER => true,
 	  CURLOPT_ENCODING => '',
 	  CURLOPT_MAXREDIRS => 10,
@@ -89,8 +89,8 @@ function sendWa1($hp, $text)
 	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 	  CURLOPT_CUSTOMREQUEST => 'POST',
 	  CURLOPT_POSTFIELDS => array(
-	  'appkey' => 'e706d722-9931-40cf-b4b5-fa513f300a87',
-	  'authkey' => 'OHWmaxQ1W049rGifHEvQcyWG2diGb8iET9JczDAjyRivDXT9OD',
+	  'appkey' => '869aaaec-6aa1-491d-b34d-b2c9e6e801b3',
+	  'authkey' => 'NW1fV7Bhhrv16yMCgjFUSStoIQZG3CLHQtBz0NfKxV8Qxmrmfv',
 	  'to' => $hp,
 	  'message' => $text,
 	  'sandbox' => 'false'
@@ -99,7 +99,7 @@ function sendWa1($hp, $text)
 
 	$response = curl_exec($curl);
 	curl_close($curl);
-	echo $response;
+	
 	if (empty($response)) {
 		$data = [
 			'api_key' => 'efacb2a793deade57af9fb2fd3f79b91911c5324',
