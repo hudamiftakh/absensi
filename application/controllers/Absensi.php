@@ -356,7 +356,9 @@ class absensi extends CI_Controller {
 			$menit = (substr($dAbsensi['jam_masuk'], 0,5)>'07:00') ? (substr($dAbsensi['jam_masuk'], 0,2) - 7) * 60 + (substr($dAbsensi['jam_masuk'], 3,2) -0)." Menit" : '';
 			// echo substr($dAbsensi['jam_masuk'], 3,2);
 			$keterangan = ($dAbsensi['jam_masuk']>'07:00') ? 'Terlambat' : 'Hadir';
-			$text = "*NOTIFIKASI ABSEN MASUK MIN 1 JOMBANG* \n \n Siswa dengan NIS ".$dAbsensi['nis']." Atas nama *".$dAbsensi['nama']."* Sudah melakukan absensi pada tanggal *".farmat_tanggal($dAbsensi['tanggal'])."* jam *".$dAbsensi['jam_masuk']."* dengan status *".$keterangan."* ".$menit."";
+			// $text = "*NOTIFIKASI ABSEN MASUK MIN 1 JOMBANG* \n \n Siswa dengan NIS ".$dAbsensi['nis']." Atas nama *".$dAbsensi['nama']."* Sudah melakukan absensi pada tanggal *".farmat_tanggal($dAbsensi['tanggal'])."* jam *".$dAbsensi['jam_masuk']."* dengan status *".$keterangan."* ".$menit."";
+
+			$text = "*NOTIFIKASI ABSEN MASUK MIN 1 JOMBANG* \n Absensi siswa *".farmat_tanggal($dAbsensi['tanggal'])."* \n \n NIS : *".$siswa['nis']."* \n Nama : *".$siswa['nama']."* \n Kelas : *".$siswa['kelas']."* \n Jam Absen : *".$dAbsensi['jam_masuk']."* \n Keterangan : *".$keterangan."* ".$menit." \n \n  *Note* :  _Jangan membalas pesan ini, ini adalah pesat otomatis yang dikirim dari sistem aplikasi absensi MIN 1 Jombang_";
 			// echo $text;
 			$hp =  str_replace('+', '', hp($siswa['telepon']));
 			$data = array('send_wa_status'=>'done','date_send_wa'=>date('Y-m-d H:i:s'));
@@ -380,7 +382,10 @@ class absensi extends CI_Controller {
 			$menit = (substr($dAbsensi['jam_masuk'], 0,5)<'12:00') ? (substr($dAbsensi['jam_masuk'], 0,2) - 7) * 60 + (substr($dAbsensi['jam_masuk'], 3,2) -0)." Menit" : '';
 			$keterangan = ($dAbsensi['jam_masuk']>'12:00') ? 'Pulang' : 'Pulang Cepat';
 
-			$text = "*NOTIFIKASI ABSEN PULANG MIN 1 JOMBANG* \n \n Siswa dengan NIS ".$dAbsensi['nis']." Atas nama *".$dAbsensi['nama']."* Sudah melakukan absensi pada tanggal *".farmat_tanggal($dAbsensi['tanggal'])."* jam *".$dAbsensi['jam_masuk']."* dengan status *".$keterangan."* ".$menit."";
+			// $text = "*NOTIFIKASI ABSEN PULANG MIN 1 JOMBANG* \n \n Siswa dengan NIS ".$dAbsensi['nis']." Atas nama *".$dAbsensi['nama']."* Sudah melakukan absensi pada tanggal *".farmat_tanggal($dAbsensi['tanggal'])."* jam *".$dAbsensi['jam_masuk']."* dengan status *".$keterangan."* ".$menit."";
+
+			$text = "*NOTIFIKASI ABSEN PULANG MIN 1 JOMBANG* \n Absensi siswa *".farmat_tanggal($dAbsensi['tanggal'])."* \n \n NIS : *".$siswa['nis']."* \n Nama : *".$siswa['nama']."* \n Kelas : *".$siswa['kelas']."* \n Jam Absen : *".$dAbsensi['jam_masuk']."* \n Keterangan : *".$keterangan."* ".$menit." \n \n  *Note* :  _Jangan membalas pesan ini, ini adalah pesat otomatis yang dikirim dari sistem aplikasi absensi MIN 1 Jombang_";
+
 			$hp =  str_replace('+', '', hp($siswa['telepon']));
 			$data = array('send_wa_status_pulang'=>'done','date_send_wa_pulang'=>date('Y-m-d H:i:s'));
 			$this->db->where('id',$dAbsensi['id']);

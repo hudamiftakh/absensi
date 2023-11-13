@@ -1,7 +1,9 @@
 <?php 
 $menit = (date('H:i')>'07:00') ? (date('H') - 7) * 60 + (date('i') -0)." Menit" : '';
 
-$text = "*NOTIFIKASI ABSEN MIN 1 JOMBANG* \n \n Siswa dengan NIS ".$data_siswa['nis']." Atas nama *".$data_siswa['nama']."* Sudah melakukan absensi jam *".date('H:i')."* dengan status *".$keterangan."* ".$menit."";
+// $text = "*NOTIFIKASI ABSEN MIN 1 JOMBANG* \n \n Siswa dengan NIS ".$data_siswa['nis']." Atas nama *".$data_siswa['nama']."* Sudah melakukan absensi jam *".date('H:i')."* dengan status *".$keterangan."* ".$menit."";
+
+$text = "*Notifikasi Absensi MIN 1 JOMBANG* \n Absensi siswa Selasa, 12 november 2023 \n \n NIS : *".$data_siswa['nis']."* \n Nama : *".$data_siswa['nama']."* \n Kelas : *".$data_siswa['kelas']."* \n Jam Absen : *".date('H:i')."* \n Keterangan : *".$keterangan."* ".$menit." \n \n  *Note* :  _Jangan membalas pesan ini, ini adalah pesat otomatis yang dikirim dari sistem aplikasi absensi MIN 1 JOMbang_";
 $hp =  str_replace('+', '', hp($data_siswa['telepon']));
 sendWa1($hp,$text);
 

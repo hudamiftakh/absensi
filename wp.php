@@ -1,11 +1,12 @@
 
 <?php 
-
+header('Content-type: text/plain');
 $data = [
 	'api_key' => 'efacb2a793deade57af9fb2fd3f79b91911c5324',
 	'sender' => '6281330743343',
 	'number' => '6285748496135',
-	'message' => '*NOTIFIKASI ABSEN MIN 1 JOMBANG* Siswa dengan NIS 237563727 Atas nama *Mahardhika Arya Bimnantara* Sudah melakukan absensi jam *11:31* dengan status *Terlambat* 271 Menit '
+	'message' => "*Notifikasi Absensi MIN 1 JOMBANG* \n Absensi siswa Selasa, 12 november 2023 \n \n Nama : *Muhammad Ali* \n Kelas : *6-A* \n Jam Absen : *12:22* \n Keterangan : *Terlambat 120 Menit* \n \n  *Note* :  _Jangan membalas pesan ini, ini adalah pesat otomatis yang dikirim dari sistem aplikasi absensi MIN 1 JOMbang_",
+	// 'message' => "Hello, this is the first line.\nThis is the second line."
 ];
 $curl = curl_init();
 
