@@ -34,6 +34,7 @@ if (isset($_REQUEST['rfid'])){
         $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
         echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
         echo "<script>behasil_absen();</script>";
+        echo '<meta http-equiv="refresh" content="3">';
       }else{
         echo "GAGAL";
       }
@@ -42,12 +43,14 @@ if (isset($_REQUEST['rfid'])){
       $fileSize_sudah_pernah_absen = filesize($sudah_pernah_absen);
       echo '<audio src="' . $sudah_pernah_absen . '" autoplay></audio>';
       echo "<script>sudah_pernah_absen();</script>";
+      echo '<meta http-equiv="refresh" content="3">';
     }
   }else{
     $tidak_ditemukan = base_url().'assets/rekaman/data_tidak_ditemukan.m4a';
     $fileSize = filesize($tidak_ditemukan);
     echo '<audio src="' . $tidak_ditemukan . '" autoplay></audio>';
     echo "<script>data_kosong();</script>";
+    echo '<meta http-equiv="refresh" content="3">';
   }
 }
 
