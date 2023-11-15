@@ -390,7 +390,7 @@ class absensi extends CI_Controller {
 
 			// $text = "*NOTIFIKASI ABSEN PULANG MIN 1 JOMBANG* \n \n Siswa dengan NIS ".$dAbsensi['nis']." Atas nama *".$dAbsensi['nama']."* Sudah melakukan absensi pada tanggal *".farmat_tanggal($dAbsensi['tanggal'])."* jam *".$dAbsensi['jam_masuk']."* dengan status *".$keterangan."* ".$menit."";
 
-			$text = "*NOTIFIKASI ABSEN PULANG MIN 1 JOMBANG* \n Absensi siswa *".farmat_tanggal($dAbsensi['tanggal'])."* \n \n Jam Pulang : *".$jam_pulang['jam_pulang']."* \n NIS : *".$siswa['nis']."* \n Nama : *".$siswa['nama']."* \n Kelas : *".$siswa['kelas']."* \n Jam Absen : *".$dAbsensi['jam_pulang']."* \n Keterangan : *".$keterangan."* ".$menit." Menit* \n \n  *Note* :  _Jangan membalas pesan ini, ini adalah pesan otomatis yang dikirim dari sistem aplikasi absensi MIN 1 Jombang_";
+			$text = "*NOTIFIKASI ABSEN PULANG MIN 1 JOMBANG* \n Absensi siswa *".farmat_tanggal($dAbsensi['tanggal'])."* \n \n Jam Pulang : *".$jam_pulang['jam_pulang']."* \n NIS : *".$siswa['nis']."* \n Nama : *".$siswa['nama']."* \n Kelas : *".$siswa['kelas']."* \n Jam Absen : *".$dAbsensi['jam_pulang']."* \n Keterangan : *".$keterangan." ".$menit." Menit* Yang lalu \n \n  *Note* :  _Jangan membalas pesan ini, ini adalah pesan otomatis yang dikirim dari sistem aplikasi absensi MIN 1 Jombang_";
 
 			$hp =  str_replace('+', '', hp($siswa['telepon']));
 			$data = array('send_wa_status_pulang'=>'done','date_send_wa_pulang'=>date('Y-m-d H:i:s'));
