@@ -13,7 +13,8 @@ if (isset($_REQUEST['rfid'])){
   if($tot_siswa>=1){
     $tgl_hari_ini = date('Y-m-d');
     $jam = date('H:i:s');
-    $keterangan = (date('H:i')>'07:00') ? 'Terlambat' : 'Hadir';
+    $jam_masuk = $this->db->get_where('tb_kelas',array('nama'=>$data_siswa['kelas']))->row_array();
+    $keterangan = (date('H:i')>$jam_masuk['jam_masuk']) ? 'Terlambat' : 'Hadir';
     $cek_apakah_sudah_absen = $this->db->get_where('tb_absen',array('tanggal'=>$tgl_hari_ini, 'id_siswa'=>$data_siswa['id'], 'nis'=>$data_siswa['nis']))->num_rows();
     if($cek_apakah_sudah_absen<=0){
       $data = array(
@@ -22,7 +23,9 @@ if (isset($_REQUEST['rfid'])){
         'nama' => $data_siswa['nama'],
         'tanggal' => $tgl_hari_ini,
         'jam_masuk'=>$jam,
+        'role_jam_masuk'=>$jam_masuk['jam_masuk'],
         'kelas'=>$data_siswa['kelas'],
+        'role_jam_masuk'=>$data_siswa['kelas'],
         'keterangan'=>$keterangan,
         'send_wa_status'=>'queue'
       );

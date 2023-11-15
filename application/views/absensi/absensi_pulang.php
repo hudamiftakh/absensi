@@ -1,9 +1,6 @@
 
 <?php 
 date_default_timezone_set('Asia/Jakarta');
-
-
-
 if (isset($_REQUEST['rfid'])){
   $rfid = $_REQUEST['rfid'];
   $cek_rfid = $this->db->get_where('tb_siswa',array('rfid'=>$rfid));
@@ -13,18 +10,20 @@ if (isset($_REQUEST['rfid'])){
   if($tot_siswa>=1){
     $tgl_hari_ini = date('Y-m-d');
     $jam = date('H:i:s');
-    $keterangan = (date('H:i')>'07:00') ? 'Terlambat' : 'Hadir';
-    $keterangan_pulang = (date('H:i')>'12:00') ? 'Pulang' : 'Pulang Cepat';
+    $jam_pulang = $this->db->get_where('tb_kelas',array('nama'=>$data_siswa['kelas']))->row_array();
+    $keterangan = (date('H:i')>$jam_pulang['jam_pulang']) ? 'Terlambat' : 'Hadir';
+    $keterangan_pulang = (date('H:i')>$jam_pulang['jam_pulang']) ? 'Pulang' : 'Pulang Cepat';
     $cek_apakah_sudah_absen = $this->db->get_where('tb_absen',array('tanggal'=>$tgl_hari_ini, 'id_siswa'=>$data_siswa['id'], 'nis'=>$data_siswa['nis']))->num_rows();
     if($cek_apakah_sudah_absen<=0){
       $data = array(
         'id_siswa' => $data_siswa['id'],
         'nis' => $data_siswa['nis'],
         'nama' => $data_siswa['nama'],
+        'role_jam_pulang' => $jam_pulang['jam_pulang'],
         'tanggal' => $tgl_hari_ini,
         'jam_masuk'=>$jam,
         'kelas'=>$data_siswa['kelas'],
-        'keterangan'=>$keterangan,
+        'keterangan_pulang'=>$keterangan_pulang,
         'send_wa_status_pulang'=>'queue'
       );
       $this->db->set($data);
@@ -43,6 +42,7 @@ if (isset($_REQUEST['rfid'])){
       $update_absen_pulang = $this->db->query("UPDATE tb_absen 
         SET jam_pulang='".$jam."',
         keterangan_pulang='".$keterangan_pulang."',
+        role_jam_pulang='".$jam_pulang['jam_pulang']."',
         send_wa_status_pulang='queue'
         WHERE tanggal='".$tgl_hari_ini."' 
         AND id_siswa='".$data_siswa['id']."' 
