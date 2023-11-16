@@ -67,286 +67,7 @@ class absensi extends CI_Controller {
 		$data['halaman'] = 'absensi/absensi_pulang';
 		$this->load->view('modul_absen',$data);
 	}
-	public function siswa()
-	{
-		$this->checkSession();
-		$data['halaman'] = 'absensi/siswa';
-		$this->load->view('modul',$data);
-	}
-	public function act_siswa()
-	{
-		$this->checkSession();
-		$data['halaman'] = 'absensi/act_siswa';
-		$this->load->view('modul',$data);
-	}
-	public function kelas()
-	{
-		$this->checkSession();
-		$data['halaman'] = 'absensi/kelas';
-		$this->load->view('modul',$data);
-	}
-	public function save_kelas()
-	{
-		$this->checkSession();
-		$kelas = $_REQUEST['kelas'];
-		$abjad = $_REQUEST['abjad'];
-		$nm_kelas = $kelas."-".$abjad;
-		$data = array(
-			'kelas' => $kelas,
-			'abjad' => $abjad,
-			'nama' => $nm_kelas
-		);
-		if (!empty($_REQUEST['id'])) {
-			$this->db->where('id', $_REQUEST['id']);
-			$exc = $this->db->update('tb_kelas',$data);
-		}else{
-			$exc = $this->db->insert('tb_kelas',$data);
-		}
 
-		if ($exc) {
-			$alert['alert'] = '
-			<div class="alert alert-success alert-dismissible" role="alert">
-			<div class="alert-message">
-			<strong>Perhatian !! Data berhasil disimpan</strong>
-			</div>
-			</div>
-			';
-			$this->session->set_flashdata('alert',$alert);
-			if(!empty($_REQUEST['id'])){
-				redirect('act_kelas?id='.$_REQUEST['id']);
-			}else{
-				redirect('act_kelas');
-			}
-		}else{
-			$alert['alert'] = '
-			<div class="alert alert-danger alert-dismissible" role="alert">
-			<div class="alert-message">
-			<strong>Perhatian !! Data gagal disimpan</strong>
-			</div>
-			</div>
-			';
-			$this->session->set_flashdata('alert',$alert);
-			if(!empty($_REQUEST['id'])){
-				redirect('act_kelas?id='.$_REQUEST['id']);
-			}else{
-				redirect('act_kelas');
-			}
-
-		}
-	}
-	public function laporan()
-	{
-		$this->checkSession();
-		$data['halaman'] = 'absensi/laporan';
-		$this->load->view('modul',$data);
-	}
-	public function show_siswa_laporan()
-	{
-		$this->checkSession();
-		$tables = "tb_siswa";
-		$search = array('nis','nama','kelas','tanggal_lahir');
-            // jika memakai IS NULL pada where sql
-		$where  = array('kelas' => $_REQUEST['kelas']);
-
-		$isWhere = NULL;
-            // $isWhere = 'artikel.deleted_at IS NULL';
-		header('Content-Type: application/json');
-		echo $this->M_Datatables->get_tables_where($tables,$search,$where, $isWhere);
-
-	}
-
-	public function laporan_total_siswa_hadir()
-	{
-		$this->checkSession();
-		$tables = "tb_absen";
-		$search = array('nis','nama','kelas','tanggal','jam_masuk','keterangan');
-            // jika memakai IS NULL pada where sql
-		$where  = array('kelas'=>$_REQUEST['kelas'],'tanggal >' => $_REQUEST['tgl_awal'], 'tanggal<'=>$_REQUEST['tgl_akhir']);
-
-		$isWhere = NULL;
-            // $isWhere = 'artikel.deleted_at IS NULL';
-		header('Content-Type: application/json');
-		echo $this->M_Datatables->get_tables_where($tables,$search,$where, $isWhere);
-	}
-
-	public function laporan_total_siswa_hadir_tepat_waktu()
-	{
-		$this->checkSession();
-		$tables = "tb_absen";
-		$search = array('nis','nama','kelas','tanggal','jam_masuk','keterangan');
-            // jika memakai IS NULL pada where sql
-		$where  = array('keterangan'=>'Hadir','kelas'=>$_REQUEST['kelas'],'tanggal >' => $_REQUEST['tgl_awal'], 'tanggal<'=>$_REQUEST['tgl_akhir']);
-
-		$isWhere = NULL;
-            // $isWhere = 'artikel.deleted_at IS NULL';
-		header('Content-Type: application/json');
-		echo $this->M_Datatables->get_tables_where($tables,$search,$where, $isWhere);
-	}
-
-	public function laporan_total_siswa_hadir_tidak_tepat_waktu()
-	{
-		$this->checkSession();
-		$tables = "tb_absen";
-		$search = array('nis','nama','kelas','tanggal','jam_masuk','keterangan');
-            // jika memakai IS NULL pada where sql
-		$where  = array('keterangan'=>'Terlambat','kelas'=>$_REQUEST['kelas'],'tanggal >' => $_REQUEST['tgl_awal'], 'tanggal<'=>$_REQUEST['tgl_akhir']);
-
-		$isWhere = NULL;
-            // $isWhere = 'artikel.deleted_at IS NULL';
-		header('Content-Type: application/json');
-		echo $this->M_Datatables->get_tables_where($tables,$search,$where, $isWhere);
-	}
-
-	public function table_siswa_absen_pulang()
-	{
-		$this->checkSession();
-		$tables = "tb_absen";
-		$search = array('nis','nama','kelas','tanggal','jam_masuk','keterangan_pulang');
-            // jika memakai IS NULL pada where sql
-		$where  = array('kelas'=>$_REQUEST['kelas'],'tanggal >' => $_REQUEST['tgl_awal'], 'tanggal<'=>$_REQUEST['tgl_akhir']);
-
-		$isWhere = "jam_pulang != '00:00:00'";
-            // $isWhere = 'artikel.deleted_at IS NULL';
-		header('Content-Type: application/json');
-		echo $this->M_Datatables->get_tables_where($tables,$search,$where, $isWhere);
-	}
-
-	public function laporan_total_siswa_tidak_hadir()
-	{
-		$query  = "SELECT id,nis, nama,kelas,alamat,jk FROM `tb_siswa`";
-        $search = array('nis','nama','kelas','alamat','jk');
-        // $where  = null; 
-        $where  = array('kelas'=>$_REQUEST['kelas']);
-        // jika memakai IS NULL pada where sql
-        $isWhere = "id NOT IN (SELECT id_siswa FROM tb_absen WHERE kelas='".$_REQUEST['kelas']."' AND tanggal>='".$_REQUEST['tgl_awal']."' AND tanggal<='".$_REQUEST['tgl_akhir']."')";
-        // $isWhere = 'artikel.deleted_at IS NULL';
-        header('Content-Type: application/json');
-        echo $this->M_Datatables->get_tables_query($query,$search,$where,$isWhere);
-	}
-
-	public function laporan_total()
-	{
-		$this->checkSession();
-		$data['halaman'] = 'absensi/laporan_total';
-		$this->load->view('modul',$data);
-	}
-	public function upload_csv()
-	{
-		$this->checkSession();
-		$data['halaman'] = 'absensi/upload_csv';
-		$this->load->view('modul',$data);
-	}
-	public function act_kelas()
-	{
-		$this->checkSession();
-		$data['halaman'] = 'absensi/act_kelas';
-		$this->load->view('modul',$data);
-	}
-
-	public function laporan_view()
-	{
-		$this->checkSession();
-		$tables = "tb_absen";
-		$search = array('tanggal','nis','kelas','jam_masuk','keterangan','jam_pulang','keterangan_pulang','id');
-            // jika memakai IS NULL pada where sql
-		$where  = array('keterangan'=>$_REQUEST['status'],'kelas'=>$_REQUEST['kelas'],'tanggal >' => $_REQUEST['tgl_awal'], 'tanggal<'=>$_REQUEST['tgl_akhir']);
-		
-		$isWhere = NULL;
-            // $isWhere = 'artikel.deleted_at IS NULL';
-		header('Content-Type: application/json');
-		echo $this->M_Datatables->get_tables_where($tables,$search,$where, $isWhere);
-	}
-
-	public function data_siswa_show()
-	{
-		$this->checkSession();
-		$tables = "tb_siswa";
-		$search = array('rfid','foto','nisn','nama','kelas','jk','nama_ayah','telepon','alamat','id');
-            // jika memakai IS NULL pada where sql
-		$isWhere = NULL;
-            // $isWhere = 'artikel.deleted_at IS NULL';
-		header('Content-Type: application/json');
-		echo $this->M_Datatables->get_tables($tables,$search,$isWhere);
-	}
-
-
-	public function save_siswa()
-	{
-		$this->checkSession();
-		if (isset($_REQUEST['simpan'])) {
-			$config['upload_path']          = './assets/siswa/';
-			$config['allowed_types']        = 'gif|jpg|png|jpeg';
-			$config['max_size']             = 8000;
-			$config['max_width']            = 1000;
-			$config['max_height']           = 1000;
-			$this->load->library('upload', $config);
-
-			if($_FILES['foto']['name']!="") {
-				if (!$this->upload->do_upload('foto')){
-					echo $this->upload->display_errors();
-				}else{
-					$upload_data=$this->upload->data();
-					$foto=(empty($upload_data['file_name'])) ? "-" : $upload_data['file_name'];
-				}
-			}else{
-				$foto = $_REQUEST['foto_lama'];
-			}
-
-			$data = array(
-				'nis' => $_REQUEST['nis'],
-				'nisn' => $_REQUEST['nisn'],
-				'rfid' => $_REQUEST['rfid'],
-				'nama' => $_REQUEST['nama'],
-				'tempat_lahir' => $_REQUEST['tempat_lahir'],
-				'tanggal_lahir' => $_REQUEST['tanggal_lahir'],
-				'jk' => $_REQUEST['jk'],
-				'alamat' => $_REQUEST['alamat'],
-				'kelas' => $_REQUEST['kelas'],
-				'telepon' => str_replace('+', '', hp($_REQUEST['telepone'])),
-				'nama_ayah' => $_REQUEST['nama_ayah'],
-				'nama_Ibu' => $_REQUEST['nama_Ibu'],
-				'foto' => $foto
-			);
-
-
-			if (!empty($_REQUEST['id'])) {
-				$this->db->where('id', $_REQUEST['id']);
-				$exc = $this->db->update('tb_siswa',$data);
-			}else{
-				$exc = $this->db->insert('tb_siswa',$data);
-			}
-
-			if ($exc) {
-				$alert['alert'] = '
-				<div class="alert alert-success alert-dismissible" role="alert">
-				<div class="alert-message">
-				<strong>Perhatian !! Data berhasil disimpan</strong>
-				</div>
-				</div>
-				';
-				$this->session->set_flashdata('alert',$alert);
-				if(!empty($_REQUEST['id'])){
-					redirect('act_siswa?id='.$_REQUEST['id']);
-				}else{
-					redirect('act_siswa');
-				}
-			}else{
-				$alert['alert'] = '
-				<div class="alert alert-danger alert-dismissible" role="alert">
-				<div class="alert-message">
-				<strong>Perhatian !! Data gagal disimpan</strong>
-				</div>
-				</div>
-				';
-				$this->session->set_flashdata('alert',$alert);
-				if(!empty($_REQUEST['id'])){
-					redirect('act_siswa?id='.$_REQUEST['id']);
-				}else{
-					redirect('act_siswa');
-				}
-			}
-		}
-	}
 	public function cron_send_wa_masuk(){
 		$res_absensi = $this->db->get_where('tb_absen',array('send_wa_status'=>'queue'),1);
 		$total_absensi = $res_absensi->num_rows();
@@ -374,6 +95,9 @@ class absensi extends CI_Controller {
 		}else{
 			echo json_encode(array('status'=>'data sudah dikirim semua'));
 		}
+		
+		$this->cron_notifikasi_walikelas();
+		$this->cron_send_wa_pulang();
 	}
 
 	public function cron_send_wa_pulang(){
@@ -402,7 +126,72 @@ class absensi extends CI_Controller {
 		}else{
 			echo json_encode(array('status'=>'data sudah dikirim semua'));
 		}
+
+		$this->cron_notifikasi_walikelas();
 	}
+
+	public function cron_notifikasi_walikelas(){
+		$tgl_hari_ini = date('Y-m-d');
+		$res_kelas = $this->db->get_where('tb_kelas',array('send_wa_status_masuk'=>'queue','hp_walikelas !='=>''),1);
+		$total_log_kelas = $res_kelas->num_rows();
+		if($total_log_kelas>=1){
+			$data_kelas = $res_kelas->row_array();
+			$hp = $data_kelas['hp_walikelas'];
+
+			$cek_siswa_tidak_hadir = $this->db->query(
+			"SELECT * FROM tb_siswa 
+			WHERE id NOT IN (SELECT id_siswa FROM tb_absen 
+									WHERE kelas='".$data_kelas['nama']."' 
+									AND tanggal='".$tgl_hari_ini."')
+			AND kelas='".$data_kelas['nama']."'
+			")->result_array();
+
+			$list_siswa ="*NOTIFIKASI ABSEN MIN 1 JOMBANG * \n Berikut List nama siswa *Tidak/Belum* absen *".farmat_tanggal($tgl_hari_ini)."* kelas *".$data_kelas['nama']."* walikelas *".$data_kelas['nm_walikelas']."* \n \n";
+			$no = 1;
+			$arr_name = array();
+			foreach ($cek_siswa_tidak_hadir as $key => $dsiswa) {
+				$arr_name[] = [
+					'nisn' => $dsiswa['nisn'],
+					'nama' => $dsiswa['nama'],
+					'kelas' => $dsiswa['kelas']
+				];
+				$list_siswa.=$no++." *".$dsiswa['nama']."* \n";
+			}
+			$text = $list_siswa." \n _Jangan membalas pesan ini, ini adalah pesan otomatis yang dikirim dari sistem aplikasi absensi MIN 1 Jombang_";
+			$json_log = json_encode(array('log'=>date('Y-m-d H:i:s'),'log_wa'=>$text, 'detail'=>$arr_name));
+			$dsavelog = array(
+				'tgl_buat'=>date('Y-m-d H:i:s'),
+				'tanggal'=>$tgl_hari_ini,
+				'kelas'=>$data_kelas['nama'],
+				'log_data'=>$json_log
+			);
+			// ngecek log
+			$cek_log_notif = $this->db->get_where('tb_notifikasi_walikelas',array('tanggal'=>$tgl_hari_ini,'kelas'=>$data_kelas['nama']));
+			$total_log = $cek_log_notif->num_rows();
+			$dalog = $cek_log_notif->row_array();
+			if ($total_log<=0) {
+				$rest = $this->db->insert('tb_notifikasi_walikelas',$dsavelog);
+			}else{
+				$this->db->where(array('id'=>$dalog['id']));
+				$rest = $this->db->update('tb_notifikasi_walikelas',$dsavelog);
+			}
+
+			if($rest){
+				sendWa1($hp,$text);
+				$this->db->where(array('id'=>$data_kelas['id']));
+				$this->db->update('tb_kelas',array('send_wa_status_masuk'=>'done'));
+			}
+		}else{
+			echo json_encode(array('status'=>'Data sudah dikirim semua'));
+		}
+
+	}
+	public function update_queue_notifikasi_walikelas(){
+		// $data = array('send_wa_status_masuk'=>'');
+		$data = array('send_wa_status_masuk'=>'queue');
+		$this->db->update('tb_kelas',$data);
+	}
+
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('./login');
