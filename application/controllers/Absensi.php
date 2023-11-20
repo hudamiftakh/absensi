@@ -123,10 +123,8 @@ class absensi extends CI_Controller {
 				sendWa1($hp,$text);
 			}
 		}else{
-			echo json_encode(array('status'=>'data sudah dikirim semua'));
+			echo json_encode(array('status'=>'data sudah dikirim semua'));	
 		}
-		$this->cron_send_wa_masuk();
-		$this->cron_notifikasi_walikelas();
 	}
 
 	public function cron_notifikasi_walikelas(){
