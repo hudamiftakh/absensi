@@ -73,7 +73,7 @@ class absensi extends CI_Controller {
 		$total_absensi = $res_absensi->num_rows();
 		if($total_absensi>=1){
 			$dAbsensi = $res_absensi->row_array();
-			$siswa = $this->db->get_where('tb_siswa',array('id'=>$dAbsensi['id_siswa'], 'nisn'=>$dAbsensi['nis']))->row_array();
+			$siswa = $this->db->get_where('tb_siswa',array('id'=>$dAbsensi['id_siswa']))->row_array();
 			$jam_masuk = $this->db->get_where('tb_kelas',array('nama'=>$siswa['kelas']))->row_array();
 			// $menit = (substr($dAbsensi['jam_masuk'], 0,5)>$jam_masuk['jam_masuk']) ? (substr($dAbsensi['jam_masuk'], 0,2) - 7) * 60 + (substr($dAbsensi['jam_masuk'], 3,2) -0)." Menit" : '';
 			$menit_set = (strtotime($dAbsensi['jam_masuk']) - strtotime($jam_masuk['jam_masuk'])) / 60;
@@ -104,7 +104,7 @@ class absensi extends CI_Controller {
 		$total_absensi = $res_absensi->num_rows();
 		if($total_absensi>=1){
 			$dAbsensi = $res_absensi->row_array();
-			$siswa = $this->db->get_where('tb_siswa',array('id'=>$dAbsensi['id_siswa'], 'nisn'=>$dAbsensi['nis']))->row_array();
+			$siswa = $this->db->get_where('tb_siswa',array('id'=>$dAbsensi['id_siswa']))->row_array();
 			$jam_pulang = $this->db->get_where('tb_kelas',array('nama'=>$siswa['kelas']))->row_array();
 			$menit_set = (strtotime($dAbsensi['jam_pulang']) - strtotime($jam_pulang['jam_pulang'])) / 60;
 			$menit = ($menit_set<0) ? '' : number_format($menit_set)." Menit"; 

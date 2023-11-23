@@ -28,6 +28,7 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 curl_close($curl);
 $djson = json_decode($response,true);
+var_dump($response);
 if($djson["status"]){
 	echo $response;
 }else{
