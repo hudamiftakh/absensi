@@ -78,31 +78,40 @@ function generateUniqueTransactionCode($prefix = 'PJM') {
 
 function sendWa1($hp, $text)
 {
-	$data = [
-		'api_key' => 'FMJ5rNIdm8tn3smAHsjgND3YDFD8T8',
-		'sender' => '6281330743343',
-		'number' => $hp,
-		'message' => $text
-	];
-	$curl = curl_init();
-	curl_setopt_array($curl, array(
-		CURLOPT_URL => 'https://wa.digitalminsajo.sch.id/send-message',
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_ENCODING => '',
-		CURLOPT_MAXREDIRS => 10,
-		CURLOPT_TIMEOUT => 0,
-		CURLOPT_FOLLOWLOCATION => true,
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => 'POST',
-		CURLOPT_POSTFIELDS => json_encode($data),
-		CURLOPT_HTTPHEADER => array(
-			'Content-Type: application/json'
-		),
-	));
-	$response = curl_exec($curl);
-	curl_close($curl);
+	// $data = [
+	// 	'api_key' => 'FMJ5rNIdm8tn3smAHsjgND3YDFD8T8',
+	// 	'sender' => '6281330743343',
+	// 	'number' => $hp,
+	// 	'message' => $text
+	// ];
+	// $curl = curl_init();
+	// curl_setopt_array($curl, array(
+	// 	CURLOPT_URL => 'https://wa.digitalminsajo.sch.id/send-message',
+	// 	CURLOPT_RETURNTRANSFER => true,
+	// 	CURLOPT_ENCODING => '',
+	// 	CURLOPT_MAXREDIRS => 10,
+	// 	CURLOPT_TIMEOUT => 0,
+	// 	CURLOPT_FOLLOWLOCATION => true,
+	// 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	// 	CURLOPT_CUSTOMREQUEST => 'POST',
+	// 	CURLOPT_POSTFIELDS => json_encode($data),
+	// 	CURLOPT_HTTPHEADER => array(
+	// 		'Content-Type: application/json'
+	// 	),
+	// ));
+	// $response = curl_exec($curl);
+	// curl_close($curl);
+	// $djson = json_decode($response,true);
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL,"https://wa2.digitalminsajo.sch.id/send-message");
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS,"session=wa1&to=".$hp."&text=".$text."");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($ch);
+	curl_close($ch);
 	$djson = json_decode($response,true);
-	if($djson["status"]){
+	if($djson['data']['status']){
 		echo $response;
 	}else{
 		$data = [
