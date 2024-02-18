@@ -1,0 +1,20 @@
+[22-Nov-2023 02:49:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_exec() in /home/digital1/absensi.digitalminsajo.sch.id/wp.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/digital1/absensi.digitalminsajo.sch.id/wp.php on line 28
+[22-Nov-2023 02:49:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_exec() in /home/digital1/absensi.digitalminsajo.sch.id/wp.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/digital1/absensi.digitalminsajo.sch.id/wp.php on line 28
+[22-Nov-2023 02:49:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_exec() in /home/digital1/absensi.digitalminsajo.sch.id/wp.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/digital1/absensi.digitalminsajo.sch.id/wp.php on line 28
+[22-Nov-2023 02:49:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_exec() in /home/digital1/absensi.digitalminsajo.sch.id/wp.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/digital1/absensi.digitalminsajo.sch.id/wp.php on line 28
+[22-Nov-2023 02:49:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_exec() in /home/digital1/absensi.digitalminsajo.sch.id/wp.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/digital1/absensi.digitalminsajo.sch.id/wp.php on line 28
