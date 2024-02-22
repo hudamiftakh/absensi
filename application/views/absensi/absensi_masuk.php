@@ -228,7 +228,7 @@ $absensi_terakhir = $this->db->query("
           <?php 
           $absen = $this->db->query("SELECT * FROM tb_absen as a
            LEFT JOIN tb_siswa as b ON a.id_siswa = b.id
-           WHERE a.tanggal ='".date('Y-m-d')."' ORDER BY a.jam_masuk DESC")->result_array();
+           WHERE a.tanggal ='".date('Y-m-d')."' ORDER BY a.jam_masuk DESC LIMIT 20")->result_array();
            ?>
            <?php if(empty($absen)) : ?>
             <tr>
