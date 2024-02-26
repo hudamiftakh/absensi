@@ -45,9 +45,6 @@ if (isset($_REQUEST['rfid'])){
       
       $data = array(
         'nama' => $data_siswa['nama'],
-        'tanggal' => $tgl_hari_ini,
-        'jam_masuk'=>$jam,
-        'keterangan'=>$keterangan,
         'send_wa_status'=>'queue'
       );
       $this->db->where(array('tanggal'=>$tgl_hari_ini,'id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update('tb_absen', $data);
