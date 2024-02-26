@@ -37,23 +37,30 @@ if (isset($_REQUEST['rfid'])){
         $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
         echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
         echo "<script>behasil_absen();</script>";
-        echo '<meta http-equiv="refresh" content="3">';
+        echo '<meta http-equiv="refresh" content="2">';
       }else{
         echo "GAGAL";
       }
     }else{
-      $sudah_pernah_absen = base_url().'assets/rekaman/sudah_pernah_absen.m4a';
-      $fileSize_sudah_pernah_absen = filesize($sudah_pernah_absen);
-      echo '<audio src="' . $sudah_pernah_absen . '" autoplay></audio>';
-      echo "<script>sudah_pernah_absen();</script>";
-      echo '<meta http-equiv="refresh" content="3">';
+      $sudah_Terimakasih = base_url().'assets/rekaman/Terimakasih.m4a';
+      $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
+      $data = array(
+        'nama' => $data_siswa['nama'],
+        'tanggal' => $tgl_hari_ini,
+        'jam_masuk'=>$jam,
+        'send_wa_status'=>'queue'
+      );
+      $this->db->where(array('id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update($data);
+      echo '<audio src="' . $fileSize_sudah_Terimakasih . '" autoplay></audio>';
+      echo "<script>behasil_absen();</script>";
+      echo '<meta http-equiv="refresh" content="2">';
     }
   }else{
     $tidak_ditemukan = base_url().'assets/rekaman/data_tidak_ditemukan.m4a';
     $fileSize = filesize($tidak_ditemukan);
     echo '<audio src="' . $tidak_ditemukan . '" autoplay></audio>';
     echo "<script>data_kosong();</script>";
-    echo '<meta http-equiv="refresh" content="3">';
+    echo '<meta http-equiv="refresh" content="2">';
   }
 }
 
