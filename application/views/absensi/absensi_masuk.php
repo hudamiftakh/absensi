@@ -42,8 +42,7 @@ if (isset($_REQUEST['rfid'])){
         echo "GAGAL";
       }
     }else{
-      $sudah_Terimakasih = base_url().'assets/rekaman/Terimakasih.m4a';
-      $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
+      
       $data = array(
         'nama' => $data_siswa['nama'],
         'tanggal' => $tgl_hari_ini,
@@ -52,7 +51,10 @@ if (isset($_REQUEST['rfid'])){
         'send_wa_status'=>'queue'
       );
       $this->db->where(array('tanggal'=>$tgl_hari_ini,'id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update('tb_absen', $data);
-      echo '<audio src="' . $fileSize_sudah_Terimakasih . '" autoplay></audio>';
+      
+      $sudah_Terimakasih = base_url().'assets/rekaman/Terimakasih.m4a';
+      $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
+      echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
       echo "<script>behasil_absen();</script>";
       echo '<meta http-equiv="refresh" content="1.5">';
     }
