@@ -69,6 +69,8 @@ class absensi extends CI_Controller {
 	}
 
 	public function cron_send_wa_masuk(){
+		$this->db->order_by('tanggal', 'DESC');
+		$this->db->order_by('jam_masuk', 'DESC');
 		$res_absensi = $this->db->get_where('tb_absen',array('send_wa_status'=>'queue'),1);
 		$total_absensi = $res_absensi->num_rows();
 		if($total_absensi>=1){
@@ -100,6 +102,8 @@ class absensi extends CI_Controller {
 	}
 
 	public function cron_send_wa_pulang(){
+		$this->db->order_by('tanggal', 'DESC');
+		$this->db->order_by('jam_pulang', 'DESC');
 		$res_absensi = $this->db->get_where('tb_absen',array('send_wa_status_pulang'=>'queue'),1);
 		$total_absensi = $res_absensi->num_rows();
 		if($total_absensi>=1){

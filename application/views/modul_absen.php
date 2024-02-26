@@ -118,7 +118,7 @@
               </table>
             </li>
           </ul>
-          <div class="navbar-collapse justify-content-end collapse" id="navbarNav" style="">
+          <!-- <div class="navbar-collapse justify-content-end collapse" id="navbarNav" style="">
             <div class="d-flex align-items-center justify-content-between">
               <a href="javascript:void(0)" class="nav-link d-flex d-lg-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="offcanvasWithBothOptions">
                 <i class="ti ti-align-justified fs-7"></i>
@@ -147,7 +147,7 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> -->
         </nav>
       </header>
 
