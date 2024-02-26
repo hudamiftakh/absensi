@@ -37,7 +37,7 @@ if (isset($_REQUEST['rfid'])){
         $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
         echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
         echo "<script>behasil_absen();</script>";
-        echo '<meta http-equiv="refresh" content="2">';
+        echo '<meta http-equiv="refresh" content="1.5">';
       }else{
         echo "GAGAL";
       }
@@ -54,14 +54,14 @@ if (isset($_REQUEST['rfid'])){
       $this->db->where(array('tanggal'=>$tgl_hari_ini,'id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update('tb_absen', $data);
       echo '<audio src="' . $fileSize_sudah_Terimakasih . '" autoplay></audio>';
       echo "<script>behasil_absen();</script>";
-      echo '<meta http-equiv="refresh" content="2">';
+      echo '<meta http-equiv="refresh" content="1.5">';
     }
   }else{
     $tidak_ditemukan = base_url().'assets/rekaman/data_tidak_ditemukan.m4a';
     $fileSize = filesize($tidak_ditemukan);
     echo '<audio src="' . $tidak_ditemukan . '" autoplay></audio>';
     echo "<script>data_kosong();</script>";
-    echo '<meta http-equiv="refresh" content="2">';
+    echo '<meta http-equiv="refresh" content="1.5">';
   }
 }
 
