@@ -50,7 +50,7 @@ if (isset($_REQUEST['rfid'])){
         'jam_masuk'=>$jam,
         'send_wa_status'=>'queue'
       );
-      $this->db->where(array('id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update($data);
+      $this->db->where(array('id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update('tb_absen', $data);
       echo '<audio src="' . $fileSize_sudah_Terimakasih . '" autoplay></audio>';
       echo "<script>behasil_absen();</script>";
       echo '<meta http-equiv="refresh" content="2">';
