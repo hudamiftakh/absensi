@@ -48,9 +48,10 @@ if (isset($_REQUEST['rfid'])){
         'nama' => $data_siswa['nama'],
         'tanggal' => $tgl_hari_ini,
         'jam_masuk'=>$jam,
+        'keterangan'=>$keterangan,
         'send_wa_status'=>'queue'
       );
-      $this->db->where(array('id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update('tb_absen', $data);
+      $this->db->where(array('tanggal'=>$tgl_hari_ini,'id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update('tb_absen', $data);
       echo '<audio src="' . $fileSize_sudah_Terimakasih . '" autoplay></audio>';
       echo "<script>behasil_absen();</script>";
       echo '<meta http-equiv="refresh" content="2">';
