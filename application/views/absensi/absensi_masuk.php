@@ -26,7 +26,8 @@ if (isset($_REQUEST['rfid'])){
         'role_jam_masuk'=>$jam_masuk['jam_masuk'],
         'kelas'=>$data_siswa['kelas'],
         'role_jam_masuk'=>$data_siswa['kelas'],
-        'keterangan'=>$keterangan
+        'keterangan'=>$keterangan,
+        'send_wa_status'=>'queue'
       );
       $this->db->set($data);
       $save_absen = $this->db->insert('tb_absen',$data);
@@ -43,8 +44,7 @@ if (isset($_REQUEST['rfid'])){
     }else{
       
       $data = array(
-        'nama' => $data_siswa['nama'],
-        'send_wa_status'=>'queue'
+        'nama' => $data_siswa['nama']
       );
       $this->db->where(array('tanggal'=>$tgl_hari_ini,'id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update('tb_absen', $data);
       
