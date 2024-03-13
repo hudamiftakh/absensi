@@ -97,7 +97,7 @@ class absensi extends CI_Controller {
 		}else{
 			echo json_encode(array('status'=>'data sudah dikirim semua'));
 		}
-		$this->cron_notifikasi_walikelas();
+		// $this->cron_notifikasi_walikelas();
 		$this->cron_send_wa_pulang();
 	}
 

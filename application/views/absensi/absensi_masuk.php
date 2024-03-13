@@ -1,15 +1,11 @@
 
 <?php 
 date_default_timezone_set('Asia/Jakarta');
-
-
-
 if (isset($_REQUEST['rfid'])){
   $rfid = $_REQUEST['rfid'];
   $cek_rfid = $this->db->get_where('tb_siswa',array('rfid'=>$rfid));
   $tot_siswa = $cek_rfid->num_rows();
   $data_siswa = $cek_rfid->row_array();
-
   if($tot_siswa>=1){
     $tgl_hari_ini = date('Y-m-d');
     $jam = date('H:i:s');
@@ -42,12 +38,8 @@ if (isset($_REQUEST['rfid'])){
         echo "GAGAL";
       }
     }else{
-      
-      $data = array(
-        'nama' => $data_siswa['nama']
-      );
+      $data = array('nama' => $data_siswa['nama']);
       $this->db->where(array('tanggal'=>$tgl_hari_ini,'id_siswa'=>$data_siswa['id'],'nis'=>$data_siswa['nis']))->update('tb_absen', $data);
-      
       $sudah_Terimakasih = base_url().'assets/rekaman/Terimakasih.m4a';
       $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
       echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
