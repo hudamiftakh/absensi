@@ -97,7 +97,7 @@ class absensi extends CI_Controller {
 		}else{
 			echo json_encode(array('status'=>'data sudah dikirim semua'));
 		}
-		// $this->cron_notifikasi_walikelas();
+		$this->cron_notifikasi_walikelas();
 		$this->cron_send_wa_pulang();
 	}
 
@@ -189,8 +189,8 @@ class absensi extends CI_Controller {
 	}
 	public function update_queue_notifikasi_walikelas(){
 		// $data = array('send_wa_status_masuk'=>'');
-		// $data = array('send_wa_status_masuk'=>'queue');
-		// $this->db->update('tb_kelas',$data);
+		$data = array('send_wa_status_masuk'=>'queue');
+		$this->db->update('tb_kelas',$data);
 	}
 
 	public function logout(){
