@@ -33,7 +33,7 @@ if (isset ($_REQUEST['rfid'])) {
         // include 'whatsapp_pulan.php';
         echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
         echo "<script>behasil_absen()</script>";
-        echo '<meta http-equiv="refresh" content="3">';
+        echo '<meta http-equiv="refresh" content="1.5">';
       } else {
         echo "GAGAL";
       }
@@ -44,7 +44,7 @@ if (isset ($_REQUEST['rfid'])) {
         $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
         echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
         echo "<script>behasil_absen()</script>";
-        echo '<meta http-equiv="refresh" content="3">';
+        echo '<meta http-equiv="refresh" content="1.5">';
       } else {
         $update_absen_pulang = $this->db->query("UPDATE tb_absen 
         SET jam_pulang='" . $jam . "',
@@ -60,7 +60,7 @@ if (isset ($_REQUEST['rfid'])) {
           $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
           echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
           echo "<script>behasil_absen()</script>";
-          echo '<meta http-equiv="refresh" content="3">';
+          echo '<meta http-equiv="refresh" content="1.5">';
         } else {
           echo "GAGAL";
         }
@@ -71,7 +71,7 @@ if (isset ($_REQUEST['rfid'])) {
     $fileSize = filesize($tidak_ditemukan);
     echo '<audio src="' . $tidak_ditemukan . '" autoplay></audio>';
     echo "<script>data_kosong()</script>";
-    echo '<meta http-equiv="refresh" content="3">';
+    echo '<meta http-equiv="refresh" content="1.5">';
   }
 }
 
