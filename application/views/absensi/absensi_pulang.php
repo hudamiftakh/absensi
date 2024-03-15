@@ -40,6 +40,14 @@ if (isset ($_REQUEST['rfid'])) {
     } else {
       $cek_apakah_sudah_absen_pulang = $this->db->get_where('tb_absen', array('tanggal' => $tgl_hari_ini, 'id_siswa' => $data_siswa['id'], 'nis' => $data_siswa['nis'], 'jam_pulang IS NOT NULL'))->num_rows();
       if ($cek_apakah_sudah_absen_pulang >= 1) {
+        $this->db->query("UPDATE tb_absen 
+        SET jam_pulang='" . $jam . "',
+        keterangan_pulang='" . $keterangan_pulang . "',
+        role_jam_pulang='" . $jam_pulang['jam_pulang'] . "',
+        WHERE tanggal='" . $tgl_hari_ini . "' 
+        AND id_siswa='" . $data_siswa['id'] . "' 
+        AND nis='" . $data_siswa['nis'] . "'
+        ");
         $sudah_Terimakasih = base_url() . 'assets/rekaman/Terimakasih.m4a';
         $fileSize_sudah_Terimakasih = filesize($sudah_Terimakasih);
         echo '<audio src="' . $sudah_Terimakasih . '" autoplay></audio>';
