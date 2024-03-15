@@ -20,7 +20,7 @@ if (isset ($_REQUEST['rfid'])) {
         'nama' => $data_siswa['nama'],
         'role_jam_pulang' => $jam_pulang['jam_pulang'],
         'tanggal' => $tgl_hari_ini,
-        'jam_masuk' => $jam,
+        'jam_pulang' => $jam,
         'kelas' => $data_siswa['kelas'],
         'keterangan_pulang' => $keterangan_pulang,
         'send_wa_status_pulang' => 'queue'
@@ -53,7 +53,7 @@ if (isset ($_REQUEST['rfid'])) {
         echo '<meta http-equiv="refresh" content="1.5">';
       } else {
         $update_absen_pulang = $this->db->query("UPDATE tb_absen 
-        SET jam_pulang='" . $jam . "',
+        SET jam_pulang='" . date('H:i:s') . "',
         keterangan_pulang='" . $keterangan_pulang . "',
         role_jam_pulang='" . $jam_pulang['jam_pulang'] . "',
         send_wa_status_pulang='queue'
