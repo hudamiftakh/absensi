@@ -38,12 +38,10 @@ if (isset ($_REQUEST['rfid'])) {
         echo "GAGAL";
       }
     } else {
-      $cek_apakah_sudah_absen_pulang = $this->db->get_where('tb_absen', array('tanggal' => $tgl_hari_ini, 'id_siswa' => $data_siswa['id'], 'nis' => $data_siswa['nis'], "send_wa_status_pulang<>'queue'"))->num_rows();
+      $cek_apakah_sudah_absen_pulang = $this->db->get_where('tb_absen', array('tanggal' => $tgl_hari_ini, 'id_siswa' => $data_siswa['id'], 'nis' => $data_siswa['nis'], "send_wa_status_pulang='done'"))->num_rows();
       if ($cek_apakah_sudah_absen_pulang >= 1) {
         $this->db->query("UPDATE tb_absen 
-        SET jam_pulang='" . $jam . "',
-        keterangan_pulang='" . $keterangan_pulang . "',
-        role_jam_pulang='" . $jam_pulang['jam_pulang'] . "',
+        SET role_jam_pulang='" . $jam_pulang['jam_pulang'] . "',
         WHERE tanggal='" . $tgl_hari_ini . "' 
         AND id_siswa='" . $data_siswa['id'] . "' 
         AND nis='" . $data_siswa['nis'] . "'
