@@ -1,3 +1,4 @@
+
 <?php
 date_default_timezone_set('Asia/Jakarta');
 if (isset ($_REQUEST['rfid'])) {
@@ -41,7 +42,11 @@ if (isset ($_REQUEST['rfid'])) {
       $cek_apakah_sudah_absen_pulang = $this->db->get_where('tb_absen', array('tanggal' => $tgl_hari_ini, 'id_siswa' => $data_siswa['id'], 'nis' => $data_siswa['nis'], "send_wa_status_pulang='done'"))->num_rows();
       if ($cek_apakah_sudah_absen_pulang >= 1) {
         $this->db->query("UPDATE tb_absen 
-        SET role_jam_pulang='" . $jam_pulang['jam_pulang'] . "',
+        SET
+         jam_pulang ='".date('H:i:s')."',
+         keterangan_pulang='".$keterangan_pulang."',
+         send_wa_status_pulang= 'queue',
+         role_jam_pulang='" . $jam_pulang['jam_pulang'] . "'
         WHERE tanggal='" . $tgl_hari_ini . "' 
         AND id_siswa='" . $data_siswa['id'] . "' 
         AND nis='" . $data_siswa['nis'] . "'
